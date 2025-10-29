@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Your Special Birthday Wish</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0; padding: 20px;
+      background: linear-gradient(135deg,#ffdde1,#ee9ca7,#fbc2eb,#a1c4fd);
+      font-family: 'Georgia', serif;
+      color: #47303f;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      user-select: none;
+      background-image: url('https://www.transparenttextures.com/patterns/pw-maze-white.png');
+      background-repeat: repeat;
+    }
+    
+    .paper-container {
+      background: #fff9f7;
+      max-width: 520px;
+      width: 90%;
+      padding: 40px 32px;
+      border-radius: 20px;
+      box-shadow: 0 6px 18px rgba(110,70,80,0.3);
+      border: 1.5px solid #eecfdd;
+      font-family: 'Dancing Script', cursive;
+      position: relative;
+      user-select: text;
+      color: #613a45;
+      font-size: 1.38rem;
+      line-height: 1.9;
+      letter-spacing: 0.04em;
+      text-shadow:
+        0 0 1px #5a3942,
+        0 1px 1px #ac9c9c66;
+    }
+    h2 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3.1rem;
+      font-weight: 700;
+      color: #924d67;
+      margin-bottom: 2rem;
+      user-select: text;
+      text-shadow: 0 0 12px #ffc4d9aa;
+    }
+    .letter-book {
+      position: relative;
+      padding: 0 12px;
+      text-align: left;
+      min-height: 240px;
+      background:
+        repeating-linear-gradient(
+          to bottom,
+          transparent,
+          transparent 1.4em,
+          #d7a6b8 1.5em
+        );
+      user-select: text;
+    }
+    .letter-page {
+      display: none;
+      white-space: pre-line;
+      font-weight: 500;
+      font-family: 'Dancing Script', cursive;
+      padding: 0 4px;
+      border-left: 4px solid #d7a6b8;
+      color: #6c4554;
+      letter-spacing: 0.02em;
+      font-size: 1.3rem;
+      line-height: 1.85;
+      background: transparent;
+      margin-bottom: -1.5em; /* Overlap with background lines */
+    }
+    .letter-page.active {
+      display: block;
+      animation: fadeIn 0.7s ease;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(12px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    .book-controls {
+      margin-top: 32px;
+      display: flex;
+      justify-content: space-between;
+      max-width: 280px;
+      margin-left: auto;
+      margin-right: auto;
+      user-select: none;
+    }
+    .book-controls button {
+      font-family: 'Dancing Script', cursive;
+      padding: 12px 28px;
+      font-weight: 700;
+      font-size: 1.3rem;
+      border-radius: 30px;
+      border: 2px solid #a96c86;
+      cursor: pointer;
+      background: #ffdcec;
+      color: #813d57;
+      box-shadow: 0 0 16px #d37ca9ad;
+      transition: background 0.3s ease, transform 0.3s ease;
+      user-select: none;
+    }
+    .book-controls button:disabled {
+      opacity: 0.5;
+      cursor: default;
+      box-shadow: none;
+      background: #ffecf2;
+    }
+    .book-controls button:hover:not(:disabled) {
+      background: #ffa7c1;
+      box-shadow: 0 0 24px #c25b8dcc;
+      transform: scale(1.07);
+    }
+    @media (max-width: 480px) {
+      .paper-container {
+        max-width: 95%;
+        padding: 28px 20px;
+        font-size: 1.1rem;
+      }
+      h2 {
+        font-size: 2.4rem;
+      }
+      .book-controls {
+        max-width: 100%;
+      }
+      .book-controls button {
+        padding: 10px 24px;
+        font-size: 1.15rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="paper-container" role="main" aria-label="Handwritten birthday wish letter">
+    <h2>Your Special Birthday Wish 🎉</h2>
+    <div class="letter-book" aria-live="polite">
+      <div id="letterPage1" class="letter-page active"></div>
+      <div id="letterPage2" class="letter-page"></div>
+    </div>
+    <div class="book-controls" role="group" aria-label="Page navigation">
+    </div>
+  </div>
+
+  <script>
+    const page1Text = `
+Dear PHYSCO 🥰
+
+Happy Birthday 🎂🎉
+
+I know we haven’t met yet, but like I said before — whenever we do, let’s make it a fun, memorable, and maybe even a little crazy meet! 😄
+
+Thank you so much for taking care of Shariya. I still remember saying that without you, her college life would’ve been pure chaos. Seriously, you made her time there so much better, and that means a lot. 💖
+
+Yeah… I heard the news, and honestly, I wanted to reach out back then. But I’m really glad you came out of it stronger and started a new chapter ( with new person ) — and of course, as the hot girl you are 😜🔥 (I’m sure many are waiting in line for you!).
+
+Anyway, wishing you loads of happiness, laughter, and success ahead. Keep being your awesome, “psycho” self — the world needs more of that energy! 🌸✨
+
+With warm wishes,
+Fan of your🌟
+    `.trim(); 
+
+    document.getElementById('letterPage1').textContent = page1Text;
+    document.getElementById('letterPage2').textContent = page2Text;
+
+    const prevBtn = document.getElementById('prevPageBtn');
+    const nextBtn = document.getElementById('nextPageBtn');
+    const letterPage1 = document.getElementById('letterPage1');
+    const letterPage2 = document.getElementById('letterPage2');
+
+    prevBtn.disabled = true;
+    nextBtn.disabled = false;
+
+    prevBtn.addEventListener('click', () => {
+      letterPage1.classList.add('active');
+      letterPage2.classList.remove('active');
+      prevBtn.disabled = true;
+      nextBtn.disabled = false;
+    });
+
+    nextBtn.addEventListener('click', () => {
+      letterPage2.classList.add('active');
+      letterPage1.classList.remove('active');
+      prevBtn.disabled = false;
+      nextBtn.disabled = true;
+    });
+  </script>
+</body>
+</html>

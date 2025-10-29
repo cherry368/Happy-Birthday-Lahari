@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Birthday Cake Celebration</title>
+  <style>
+    body {
+      margin: 0; padding: 20px;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7, #fbc2eb, #a1c4fd);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #73264d;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      user-select: none;
+    }
+    .glow-container {
+      background: linear-gradient(120deg, #fffafc, #ffe2f3);
+      box-shadow: 0 0 35px #ff8bc9, 0 0 70px #d72660cc;
+      border-radius: 28px;
+      max-width: 480px;
+      width: 90%;
+      padding: 42px 32px 48px;
+      box-sizing: border-box;
+      user-select: none;
+    }
+    h2 {
+      font-family: 'Great Vibes', cursive, 'Segoe UI', sans-serif;
+      font-size: 2.9rem;
+      margin-bottom: 12px;
+      color: #d23779;
+      text-shadow: 0 2px 14px #ffbadcb3;
+      user-select: text;
+    }
+    #smallNote {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 1.18rem;
+      color: #843c63;
+      margin-bottom: 20px;
+      user-select: text;
+    }
+    #instruction {
+      font-size: 1.28rem;
+      margin-bottom: 32px;
+      color: #73264d;
+      min-height: 42px;
+      user-select: text;
+    }
+    #message {
+      font-size: 1.28rem;
+      margin-top: 32px;
+      color: #73264d;
+      min-height: 42px;
+      user-select: text;
+    }
+    .party {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      margin: 2rem 0;
+    }
+    .party-img {
+      width: 150px;
+      height: 150px;
+      cursor: pointer;
+      filter: drop-shadow(0 8px 12px #d8478559);
+      border-radius: 26px;
+      background: #fff4f7c7;
+      transition: transform 0.3s ease;
+      object-fit: contain;
+    }
+    .party-img:hover {
+      transform: scale(1.1);
+    }
+    .party-img.clicked {
+      filter: drop-shadow(0 0 30px #ff72b77f);
+      transform: scale(1.2) rotate(-6deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="glow-container">
+    <h2 id="greeting">Hello, <span id="nameDisplay">Friend</span>!</h2>
+    <div id="smallNote"></div>
+    <div id="instruction">Please <b>click the balloon</b> first 🎈</div>
+    <div class="party">
+      <img src="https://www.freeiconspng.com/thumbs/balloon-png/balloon-png-22.png" alt="Balloon" id="b1" class="party-img" />
+      <img src="https://theovenchef.com/wp-content/uploads/2023/08/WhatsApp-Image-2023-11-01-at-5.39.28-PM-1-scaled-e1698841246352.jpeg" alt="Cake" id="cake1" class="party-img" style="display:none" />
+    </div>
+    <div id="message"></div>
+  </div>
+
+  <script>
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+    const name = getQueryParam('name') || 'Friend';
+    document.getElementById('nameDisplay').textContent = name;
+    document.getElementById('smallNote').textContent = `Wishing you a joyous and magical birthday, ${name}! 🎉🎂`;
+
+    const balloon = document.getElementById('b1');
+    const cake = document.getElementById('cake1');
+    const message = document.getElementById('message');
+    const instruction = document.getElementById('instruction');
+
+    balloon.addEventListener('click', () => {
+      balloon.classList.add('clicked');
+      message.textContent = 'Pop! 🎈 All the joy, love & fun for you!';
+      balloon.style.pointerEvents = 'none';
+      instruction.textContent = '';
+      setTimeout(() => {
+        balloon.style.display = 'none';
+        cake.style.display = 'inline-block';
+        message.textContent = 'Now please cut the cake 🎂';
+      }, 3000);
+    });
+
+    cake.addEventListener('click', () => {
+      cake.classList.add('clicked');
+      message.textContent = 'Slice! 🎂 May your year be sweet and joyful!';
+      cake.style.pointerEvents = 'none';
+      instruction.textContent = '';
+      setTimeout(() => {
+        window.location.href = 'mv.html';
+      }, 3000);
+    });
+
+    window.addEventListener('load', () => {
+  const audio = document.getElementById('birthdayAudio');
+  audio.play().catch(() => {
+    console.log('Autoplay was blocked by browser, user interaction may be required.');
+  });
+});
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Birthday Wish - Page 1</title>
+  <style>
+    @keyframes gradient {
+      0% {background-position:0% 50%;}
+      50% {background-position:100% 50%;}
+      100% {background-position:0% 50%;}
+    }
+    body, html {
+      margin: 0; padding: 0;
+      height: 100%;
+      font-family: 'Segoe UI', 'Quicksand', Arial, sans-serif;
+      color: #832060;
+      text-align: center;
+      background: linear-gradient(135deg,#ffdde1,#ee9ca7,#fbc2eb,#a1c4fd);
+      background-size: 400% 400%;
+      animation: gradient 10s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .glow-container {
+      max-width: 700px; 
+      width: 90%;
+      background: linear-gradient(120deg, #fffafc, #ffe2f3);
+      box-shadow: 0 0 28px #ffb3d9, 0 0 55px #d72660;
+      border-radius: 28px;
+      padding: 48px 38px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    .page-image {
+      max-width: 260px;
+      border-radius: 20px;
+      box-shadow: 0 0 18px #ffc6e299;
+      margin-bottom: 20px;
+    }
+    .wish-title {
+      font-family: 'Great Vibes', cursive, 'Segoe UI', Arial, sans-serif;
+      font-size: 2.7rem;
+      color: #cf2963;
+      margin: 0 0 16px 0;
+      font-weight: 700;
+      text-shadow: 0 2px 14px #ffbbe9cc;
+    }
+    .subtitle {
+      font-size: 1.15rem;
+      margin-bottom: 28px;
+      color: #832060;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    .begin-btn {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 1.14rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #fa5595, #eb4cbb);
+      color: #fff;
+      border: none;
+      border-radius: 45px;
+      padding: 14px 36px;
+      margin-top: 15px;
+      box-shadow: 0 0 16px #ff94c488;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .begin-btn:hover {
+      background: linear-gradient(90deg, #eb4cbb, #fa5595);
+    }
+  </style>
+</head>
+<body>
+  <div class="glow-container">
+    <!-- Replace 'image.jpg' below with your attached image file name or path -->
+    <!--<img src="image.jpg" alt="Birthday wish intro" class="page-image" />-->
+    <div class="wish-title">💖 Happy Birthday! 💖</div>
+    <div class="subtitle">
+      Welcome to your special wish, made with love ❤️
+    </div>
+    <button class="begin-btn" onclick="window.location.href='name.html'">Let's Begin</button>
+  </div>
+</body>
+</html>

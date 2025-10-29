@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sweet Memories Photo Gallery</title>
+  <style>
+    body {
+      margin: 0; padding: 20px;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7, #fbc2eb, #a1c4fd);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #73264d;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .gallery-container {
+      background: linear-gradient(120deg, #fffafc, #ffe2f3);
+      box-shadow: 0 0 25px #ffb3d9, 0 0 55px #d72660;
+      border-radius: 28px;
+      max-width: 700px;
+      width: 95%;
+      padding: 30px 22px 48px;
+      box-sizing: border-box;
+      user-select: none;
+    }
+
+    .gallery-container h2 {
+      font-family: 'Great Vibes', cursive, 'Segoe UI', sans-serif;
+      font-size: 2.8rem;
+      margin-bottom: 32px;
+      color: #cf2963;
+      text-shadow: 0 2px 14px #ffbbe9cc;
+    }
+
+    .photo-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 18px;
+      user-select: none;
+    }
+
+    .flip-card {
+      background-color: transparent;
+      width: 190px;
+      height: 240px;
+      perspective: 1000px;
+      border-radius: 20px;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      border-radius: 20px;
+      box-shadow: 0 6px 16px rgba(213, 94, 146, 0.35);
+      cursor: pointer;
+    }
+
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+      box-shadow: 0 10px 25px rgba(231, 76, 134, 0.7);
+    }
+
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .flip-card-front img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    .flip-card-back {
+      background: linear-gradient(135deg, #ffd8e4, #ffeaf2);
+      color: #af2e6a;
+      font-weight: 700;
+      font-size: 1.05rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+      text-align: center;
+      transform: rotateY(180deg);
+      letter-spacing: 0.05em;
+      user-select: text;
+    }
+
+    .next-page-btn {
+      margin-top: 28px;
+      background: linear-gradient(90deg, #fa5595, #eb4cbb);
+      border: none;
+      border-radius: 40px;
+      color: white;
+      font-size: 1.25rem;
+      font-weight: 700;
+      padding: 15px 44px;
+      cursor: pointer;
+      box-shadow: 0 0 22px #ff8aae91;
+      transition: background 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .next-page-btn:hover {
+      background: linear-gradient(90deg, #eb4cbb, #fa5595);
+    }
+
+    @media (max-width: 768px) {
+      .flip-card {
+        width: 150px;
+        height: 190px;
+      }
+      .flip-card-back {
+        font-size: 0.95rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .flip-card {
+        width: 90vw;
+        max-width: 270px;
+        height: 320px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="gallery-container" role="main" aria-label="Sweet Memories Photo Gallery">
+    <h2>Sweet Memories 💕</h2>
+    <div class="photo-grid" role="list">
+      <div class="flip-card" role="listitem">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="img/1.png" alt="Memory 1" />
+          </div>
+          <div class="flip-card-back">Your courage inspires everyone 💪💖</div>
+        </div>
+      </div>
+      <div class="flip-card" role="listitem">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="img/2.png" alt="Memory 2" />
+          </div>
+          <div class="flip-card-back">Your smile lights up the darkest nights ✨</div>
+        </div>
+      </div>
+      <div class="flip-card" role="listitem">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="img/3.png" alt="Memory 3" />
+          </div>
+          <div class="flip-card-back">You turn ordinary days into magic 🌟</div>
+        </div>
+      </div>
+      <div class="flip-card" role="listitem">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="img/4.png" alt="Memory 4" />
+          </div>
+          <div class="flip-card-back">Your kindness makes hearts blossom 🌸</div>
+        </div>
+      </div>
+      <div class="flip-card" role="listitem">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="img/5.png" alt="Memory 5" />
+          </div>
+          <div class="flip-card-back">To know you is to love the little things 🫶</div>
+        </div>
+      </div>
+      <div class="flip-card" role="listitem">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="img\6.png" alt="Memory 6" />
+          </div>
+          <div class="flip-card-back">Your strength through tough times is admirable 🛡️</div>
+        </div>
+      </div>
+      <div class="flip-card" role="listitem">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="img/7.png" alt="Memory 7" />
+          </div>
+          <div class="flip-card-back">Elegance + bravery — you are truly rare 💃🔥</div>
+        </div>
+      </div>
+      <div class="flip-card" role="listitem">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="img/8.png" alt="Memory 8" />
+          </div>
+          <div class="flip-card-back">Thank you for being adventure and peace 🎈🌈</div>
+        </div>
+      </div>
+      <div class="flip-card" role="listitem">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="img/9.png" alt="Memory 9" />
+          </div>
+          <div class="flip-card-back">Your dreams fly high and inspire 🚀</div>
+        </div>
+      </div>
+    </div>
+
+    <a href="wish.html" class="next-page-btn" role="button" aria-label="Go to final birthday wish page">
+      Reveal Your Special Wish
+    </a>
+  </div>
+</body>
+</html>
